@@ -1,6 +1,6 @@
 # eTensor
 
-Let’s Build a Deep Learning Library from Scratch Using NumPy (Part 1)
+A very simple Deep Learning Library from Scratch Using NumPy following the book https://zekcrates.quarto.pub/deep-learning-library
 
 ## Introduction
 

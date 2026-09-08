@@ -155,9 +155,13 @@ class BroadcastTo(Function):
 
   def backward(self, *args):
     out_grad, node = args
+    axes = []
 
     original_shape = node._inputs[0].data.shape
     expanded_shape = out_grad.shape
-    axis = tuple(i for i, (o, e) in enumerate(zip(original_shape, expanded_shape)) if o != e)
+    for i, (o, e) in enumerate(zip(original_shape, expanded_shape)):
+      if o != e:
+        axes.append(i)
+    axis = tuple(axes)
 
     return np.sum(out_grad, axis=axis),
